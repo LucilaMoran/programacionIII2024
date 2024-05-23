@@ -17,7 +17,7 @@ class Student{
         $this->dni=$dni;
         $this->surname=$surname;
         $this->name=$name;
-        $this->birthdate=$birtdate;
+        $this->birthdate=$birthdate;
         $this->phone=$phone;
         $this->address=$address;
         $this->email=$email;
@@ -27,7 +27,7 @@ class Student{
 
     public function addStudent (){
         //crear consulta
-        $sql="INSERT INTO students `students` (dni, surname, name, birthdate, phone, address, email, password, school) VALUES 
+        $sql="INSERT INTO students (dni, surname, name, birthdate, phone, address, email, password, school) VALUES 
         (".$this->dni.",'".$this->surname."', '".$this->name."', '".$this->birthdate."', '".$this->phone."', '".$this->address."', '".$this->email."', '".$this->password."','".$this->school."' ) "; 
         
         $this->$conexion=new Database();
@@ -38,15 +38,54 @@ class Student{
     }
 
     public function editStudent (){
+        $sql="UPDATE students SET dni=".$this->dni.",  surname='".$this->surname."', name='".$this->name."', birthdate='".$this->birthdate."', phone='".$this->phone."', address='".$this->address."', email='".$this->email."', password='".$this->password."', school='".$this->school."'
+        WHERE idStudent=".$this->idStudent; 
+        
 
+
+        $this->$conexion=new Database();
+        $result= $this->$conexion->query($sql);
+        $this->$conexion->close();
+
+        return $result;
     }
 
     public function deleteStudent (){
+        $sql="DETELE FROM students WHERE idStudents=".$this->idStudent;
+        
+        $this->$conexion=new Database();
+        $result= $this->$conexion->query($sql);
+        $this->$conexion->close();
 
+        return $result;
     }
 
     public function getStudent (){
+        $sql="SELECT * FROM students WHERE idStudents=".$this->idStudent;
+        
+        $this->$conexion=new Database();
+        $result= $this->$conexion->query($sql);
+        $this->$conexion->close();
 
+        return $result;
+
+        if ($result){
+            if($row=$result->fetch_assoc()){
+                $this->dni=$row["dni"];
+                $this->surname=$row["surname"];
+                $this->name=$row["name"];
+                $this->bithdate=$row["birthdate"];
+                $this->phone=$row["phone"];
+                $this->address=$row["address"];
+                $this->email=$row["email"];
+                $this->password=$row["password"];
+                $this->school=$row["school"];
+                return true;
+
+            }
+           
+        }
+        return false;
     }
 
     public function getAllStudents (){
