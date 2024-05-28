@@ -1,6 +1,6 @@
 <?php
 include ("dabase.class.php");
-class Student{
+class Student {
     private $idStudent=null;
     private $dni=null;
     private $surname=null;
@@ -74,7 +74,7 @@ class Student{
                 $this->dni=$row["dni"];
                 $this->surname=$row["surname"];
                 $this->name=$row["name"];
-                $this->bithdate=$row["birthdate"];
+                $this->birthdate=$row["birthdate"];
                 $this->phone=$row["phone"];
                 $this->address=$row["address"];
                 $this->email=$row["email"];
@@ -103,8 +103,155 @@ class Student{
 
     }
 
+    public function getdni (){
+
+    }
+
+    //Geeter y Setter
+    public fuction getdni() {
+
+    return $this->dni;
+    }
+
+    public function setdni ($dni){
+    $this->dni=dni;
+
+    }
+
+        public function getdni (){
+
+    }
+
+    //Geeter y Setter
+    public fuction getdni() {
+
+    return $this->dni;
+    }
+
+    public function setdni ($dni){
+    $this->dni=dni;
+
+    }
+
+    public function getsurname (){
+
+    }
+
+    //Geeter y Setter
+    public fuction getsurname() {
+
+    return $this->surname;
+    }
+
+    public function setsurname ($surname){
+    $this->surname=$surname;
+
+    }
+
+    public function getname (){
+
+    }
+
+    //Geeter y Setter
+    public fuction getname() {
+
+    return $this->name;
+    }
+
+    public function setIdStudent ($idStudent){
+    $this->name=$name;
+
+    }
+
+    public function getbirthdate (){
+
+    }
+
+    //Geeter y Setter
+    public fuction getbirthdate() {
+
+    return $this->birthdate;
+    }
+
+    public function setbirthdate ($birthdate){
+    $this->birthdate=$birthdate;
+
+    }
+
+    public function getphone (){
+
+    }
+
+    //Geeter y Setter
+    public fuction getphone() {
+
+    return $this->phone;
+    }
+
+    public function setphone ($phone){
+    $this->phone=$phone;
+
+    }
    
-                
+    public function getaddress (){
+
+    }
+
+    //Geeter y Setter
+    public fuction getaddress() {
+
+    return $this->address;
+    }
+
+    public function setaddress ($address){
+    $this->address=$address;
+
+    }   
+    
+    public function getemail (){
+
+    }
+
+    //Geeter y Setter
+    public fuction getemail() {
+
+    return $this->email;
+    }
+
+    public function setemail ($email){
+    $this->email=$email;
+
+    }
+
+    public function getpassword(){
+
+    }
+
+    //Geeter y Setter
+    public fuction getpassword() {
+
+    return $this->password;
+    }
+
+    public function setpassword($password){
+    $this->password=$password;
+
+    }   
+
+    public function getschool (){
+
+    }
+
+    //Geeter y Setter
+    public fuction getschool() {
+
+    return $this->school;
+    }
+
+    public function setschool ($school){
+    $this->school=$school;
+
+    }
 }
 
 
