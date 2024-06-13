@@ -13,18 +13,6 @@ class Student {
     private $school=null;
     private $conexion=null;
 
-    public function __construct($dni, $surname, $name, $birthdate, $phone, $address, $email, $password, $school){
-        $this->dni=$dni;
-        $this->surname=$surname;
-        $this->name=$name;
-        $this->birthdate=$birthdate;
-        $this->phone=$phone;
-        $this->address=$address;
-        $this->email=$email;
-        $this->password=$password;
-        $this->school=$school;
-    }
-
     public function addStudent (){
         //crear consulta
         $sql="INSERT INTO students (dni, surname, name, birthdate, phone, address, email, password, school) VALUES 
@@ -88,13 +76,22 @@ class Student {
         return false;
     }
 
-    public function getAllStudents (){
-
+    public function getAllStudents(){
+        $sql="SELECT * FROM students";
+        $this->$conexion=new Database();
+        $result= $this->$conexion->query($sql);
+        $this->$conexion->close();
+        $allStudents=null;
+        if ($result){
+            while ($row=$result->fetch_assoc()){
+                $allStudents[]=$row;
+            }
+        }
+        return $allStudents;
     }
 
     //Geeter y Setter
-    public fuction getIdStudent() {
-
+    public fuction getIdStudent(){
     return $this->IdStudent;
     }
 
@@ -104,13 +101,7 @@ class Student {
     }
 
     public function getdni (){
-
-    }
-
-    //Geeter y Setter
-    public fuction getdni() {
-
-    return $this->dni;
+        return $this->dni;
     }
 
     public function setdni ($dni){
@@ -118,28 +109,7 @@ class Student {
 
     }
 
-        public function getdni (){
-
-    }
-
-    //Geeter y Setter
-    public fuction getdni() {
-
-    return $this->dni;
-    }
-
-    public function setdni ($dni){
-    $this->dni=dni;
-
-    }
-
-    public function getsurname (){
-
-    }
-
-    //Geeter y Setter
     public fuction getsurname() {
-
     return $this->surname;
     }
 
@@ -148,28 +118,17 @@ class Student {
 
     }
 
-    public function getname (){
-
+    public function setname ($name){
+    $this->name=$name;
     }
 
-    //Geeter y Setter
-    public fuction getname() {
 
+    public function getname() {
     return $this->name;
     }
 
-    public function setIdStudent ($idStudent){
-    $this->name=$name;
 
-    }
-
-    public function getbirthdate (){
-
-    }
-
-    //Geeter y Setter
-    public fuction getbirthdate() {
-
+    public function getbirthdate() {
     return $this->birthdate;
     }
 
@@ -178,13 +137,7 @@ class Student {
 
     }
 
-    public function getphone (){
-
-    }
-
-    //Geeter y Setter
-    public fuction getphone() {
-
+    public function getphone() {
     return $this->phone;
     }
 
@@ -192,14 +145,8 @@ class Student {
     $this->phone=$phone;
 
     }
-   
-    public function getaddress (){
 
-    }
-
-    //Geeter y Setter
-    public fuction getaddress() {
-
+    public function getaddress() {
     return $this->address;
     }
 
@@ -208,12 +155,7 @@ class Student {
 
     }   
     
-    public function getemail (){
-
-    }
-
-    //Geeter y Setter
-    public fuction getemail() {
+    public function getemail() {
 
     return $this->email;
     }
@@ -223,12 +165,7 @@ class Student {
 
     }
 
-    public function getpassword(){
-
-    }
-
-    //Geeter y Setter
-    public fuction getpassword() {
+    public function getpassword() {
 
     return $this->password;
     }
@@ -238,12 +175,7 @@ class Student {
 
     }   
 
-    public function getschool (){
-
-    }
-
-    //Geeter y Setter
-    public fuction getschool() {
+    public function getschool() {
 
     return $this->school;
     }
